@@ -2,7 +2,7 @@
 
 """
 ╔══════════════════════════════════════════════════════════════════════════╗
-║                    BACKEND API - MAIN APPLICATION                     ║
+║                    BACKEND API - MAIN APPLICATION                        ║
 ║                     FastAPI Application Entry File                       ║
 ╚══════════════════════════════════════════════════════════════════════════╝
 
@@ -28,19 +28,19 @@ In simple terms:
 │       ↓                                                             │
 │       ↓ HTTP POST /api/chat                                         │
 │       ↓                                                             │
-│  [1] THIS FILE (api/main.py) ← ENTRY POINT                         │
-│      • Receives HTTP requests                                      │
-│      • Handles CORS (Cross-Origin Resource Sharing)                │
-│      • Routes to appropriate handlers                              │
+│  [1] THIS FILE (api/main.py) ← ENTRY POINT                          │
+│      • Receives HTTP requests                                       │
+│      • Handles CORS (Cross-Origin Resource Sharing)                 │
+│      • Routes to appropriate handlers                               │
 │       ↓                                                             │
 │  [2] ROUTERS (api/routers/chat.py)                                  │
-│      • Processes chat requests                                     │
-│      • Calls core logic                                            │
+│      • Processes chat requests                                      │
+│      • Calls core logic                                             │
 │       ↓                                                             │
 │  [3] CORE LOGIC (core/)                                             │
-│      • Classifies queries                                          │
-│      • Searches data                                               │
-│      • Generates responses                                    │
+│      • Classifies queries                                           │
+│      • Searches data                                                │
+│      • Generates responses                                          │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 
