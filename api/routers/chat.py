@@ -26,35 +26,35 @@ It ONLY coordinates everything.
 │  [1] USER TYPES: "Roy canteen phone"                                │
 │       ↓                                                             │
 │  [2] FRONTEND (frontend.py)                                         │
-│      • Sends POST to /api/chat                                     │
+│      • Sends POST to /api/chat                                      │
 │       ↓                                                             │
 │  [3] BACKEND (api/main.py)                                          │
-│      • Routes to THIS FILE                                         │
+│      • Routes to THIS FILE                                          │
 │       ↓                                                             │
-│  [4] THIS FILE (api/routers/chat.py) ← YOU ARE HERE!               │
-│      ┌─────────────────────────────────────────────────┐           │
-│      │ STEP 1: CLASSIFY INTENT                         │           │
-│      │   Uses: core/classifier.py                      │           │
-│      │   Result: "db_contact" (85% confidence)         │           │
-│      └─────────────────────────────────────────────────┘           │
+│  [4] THIS FILE (api/routers/chat.py) ← YOU ARE HERE!                │
+│      ┌─────────────────────────────────────────────────┐            │
+│      │ STEP 1: CLASSIFY INTENT                         │            │
+│      │   Uses: core/classifier.py                      │            │
+│      │   Result: "db_contact" (85% confidence)         │            │
+│      └─────────────────────────────────────────────────┘            │
 │       ↓                                                             │
-│      ┌─────────────────────────────────────────────────┐           │
-│      │ STEP 2: ROUTE TO HANDLER                        │           │
-│      │   Calls: try_get_contact(text, session)        │           │
-│      │   Searches: Canteen, Faculty, Warden tables    │           │
-│      │   Result: "Roy Canteen: 9876543210"            │           │
-│      └─────────────────────────────────────────────────┘           │
+│      ┌─────────────────────────────────────────────────┐            │
+│      │ STEP 2: ROUTE TO HANDLER                        │            │
+│      │   Calls: try_get_contact(text, session)        │             │
+│      │   Searches: Canteen, Faculty, Warden tables    │             │
+│      │   Result: "Roy Canteen: 9876543210"            │             │
+│      └─────────────────────────────────────────────────┘            │
 │       ↓                                                             │
-│      ┌─────────────────────────────────────────────────┐           │
-│      │ STEP 3: FORMAT RESPONSE                         │           │
-│      │   Uses: core/response.py (Mistral-7B AI)       │           │
-│      │   Result: Natural language response            │           │
-│      └─────────────────────────────────────────────────┘           │
+│      ┌─────────────────────────────────────────────────┐            │
+│      │ STEP 3: FORMAT RESPONSE                         │            │
+│      │   Uses: core/response.py (Mistral-7B AI)       │             │
+│      │   Result: Natural language response            │             │
+│      └─────────────────────────────────────────────────┘            │
 │       ↓                                                             │
 │      Returns JSON: {                                                │
-│        "answer": "Roy Canteen's phone number is...",               │
-│        "intent": "db_contact",                                     │
-│        "confidence": 0.85                                          │
+│        "answer": "Roy Canteen's phone number is...",                │
+│        "intent": "db_contact",                                      │
+│        "confidence": 0.85                                           │
 │      }                                                              │
 │       ↓                                                             │
 │  [5] FRONTEND DISPLAYS RESPONSE                                     │
